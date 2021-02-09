@@ -63,6 +63,8 @@ namespace BookStore_API
             });
 
             services.AddSingleton<ILoggerService, LoggerService>();
+            // Use Scoped with Data Operations
+            services.AddScoped<IAuthorRepository, AuthorRepository>();
 
             services.AddControllers();
         }
