@@ -62,9 +62,15 @@ namespace BookStore_API
                 c.IncludeXmlComments(xpath);
             });
 
+            // ASP.NET Core supports the Dependency Injection (DI) software design pattern
+            // Use Singletons where you need to maintain application wide state. Application configuration or parameters, Logging Service, caching of data is some of the examples where you can use singletons.
             services.AddSingleton<ILoggerService, LoggerService>();
-            // Use Scoped with Data Operations
+            // Use Scoped with Data Operation Services
             services.AddScoped<IAuthorRepository, AuthorRepository>();
+            services.AddScoped<IBookRepository, BookRepository>();
+            // Transient lifetime services are created each time they are requested.
+            // ... since they are created every time they will use more Memory & Resources and can have the negative impact on performance
+            // ... use this for the lightweight service with little or no state.
 
             services.AddControllers();
         }
