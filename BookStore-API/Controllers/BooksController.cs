@@ -214,7 +214,7 @@ namespace BookStore_API.Controllers
 
         private string GetControllerActionNames()
         {
-            var controller = ControllerContext.ActionDescriptor.ControllerName;
+            //var controller = ControllerContext.ActionDescriptor.ControllerName;
             var action = ControllerContext.ActionDescriptor.ActionName;
             string classname = GetType().Name;
 
